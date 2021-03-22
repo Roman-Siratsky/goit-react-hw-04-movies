@@ -1,0 +1,83 @@
+/* .default {
+  color: black;
+}
+.active {
+  color: brown;
+} */
+.button-group {
+  display: flex;
+  justify-content: center;
+}
+.detail-image {
+  height: 100%;
+  border-radius: 4px;
+}
+.card {
+  height: 100%;
+}
+.review-item {
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+.header {
+  margin-bottom: 30px;
+}
+.genres {
+  display: flex;
+}
+.genre {
+  margin-left: 20px;
+}
+.detail-list {
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  /* margin: 0 auto; */
+  list-style-type: none;
+  height: 40%;
+}
+.back-button {
+  margin-left: 15px;
+}
+.input {
+  width: 250px;
+  padding-left: 20px;
+}
+.input-label {
+  margin-right: 20px;
+}
+.movie-form {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+
+.container {
+  display: flex;
+  padding: 10px;
+}
+.link {
+  text-decoration: none;
+  color: inherit;
+  margin-right: 20px;
+}
+.trending-container {
+  padding-top: 20px;
+}
+.movie-link {
+  text-decoration: none;
+  color: inherit;
+}
+.trending-title {
+  text-align: center;
+}
+.search-wrapper {
+  /* height: 100vw; */
+}
+.App-wrapper {
+  /* height: 100vh; */
+  background-image: url("https://jooinn.com/images/metal-background-4.jpg");
+  background-repeat: repeat-y;
+  background-size: cover;
+}
