@@ -2,6 +2,7 @@ import React from 'react'
 import {NavLink, withRouter} from 'react-router-dom'
 import {Grid, Typography, Container, CardMedia, CardContent, Card} from '@material-ui/core'
 import useStyles from '../styles'
+import routes from '../routes'
 
 const MovieList = ({results, location}) => {
     const classes = useStyles()
@@ -10,7 +11,7 @@ const MovieList = ({results, location}) => {
                     <Grid container spacing={4} justify="center">
                         {results.map(result => <Grid item key={result.id} xs={12} sm={6} md={4} lg={3}>
                             <NavLink className='movie-link' to={{
-                                    pathname: `/movies/${result.id}`,
+                                    pathname: `${routes.gh + routes.movies}/${result.id}`,
                                     state: {
                                         from: location
                                     }

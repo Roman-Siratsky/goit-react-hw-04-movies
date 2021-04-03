@@ -77,13 +77,13 @@ class MovieDetail extends Component {
                     </ul>
                     <div className='button-group'>
                         <ButtonGroup align='center' variant="contained" color="primaryColor">
-                            <NavLink className='link' to={`/movies/${this.props.match.params.movieId}/cast`} ><Button color="primary">Cast</Button></NavLink>
-                            <NavLink className='link' to={`/movies/${this.props.match.params.movieId}/reviews`}><Button color="primary">Reviews</Button></NavLink>
+                            <NavLink className='link' to={`${routes.gh + routes.movies}/${this.props.match.params.movieId}/cast`} ><Button color="primary">Cast</Button></NavLink>
+                            <NavLink className='link' to={`${routes.gh + routes.movies}/${this.props.match.params.movieId}/reviews`}><Button color="primary">Reviews</Button></NavLink>
                         </ButtonGroup>
                     </div>
                     <div>
-                    <Route path={`/movies/${this.props.match.params.movieId}/cast`} render={() => <Cast filmId={this.props.match.params.movieId}/>}/>
-                    <Route path={`/movies/${this.props.match.params.movieId}/reviews`} render={() => <Reviews filmId={this.props.match.params.movieId}/>}/>
+                    <Route path={`${routes.gh + routes.movies}/${this.props.match.params.movieId}/cast`} render={() => <Cast filmId={this.props.match.params.movieId}/>}/>
+                    <Route path={`${routes.gh + routes.movies}/${this.props.match.params.movieId}/reviews`} render={() => <Reviews filmId={this.props.match.params.movieId}/>}/>
                 </div>
             </>
         )

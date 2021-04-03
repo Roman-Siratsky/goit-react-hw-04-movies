@@ -25,10 +25,10 @@ class App extends Component {
       <Suspense fallback={<h1>Загружаем</h1>}>
         <Header/>
         <Switch>
-        <Route exact path={routes.home} component={Trending}/>
-        <Route path={routes.movieDetails} component={MovieDetail}/>
-        <Route exact path={routes.movies}  component={Movies}/>
-        <Route component={NonFoundPage}/>
+        <Route exact path={routes.gh + routes.home} component={Trending}/>
+        <Route path={routes.gh + routes.movieDetails} component={MovieDetail}/>
+        <Route path={routes.gh + routes.movies}  component={Movies}/>
+        <Route component={routes.gh + NonFoundPage}/>
         </Switch>
       </Suspense>
       </div>
