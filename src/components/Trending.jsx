@@ -3,7 +3,8 @@ import {NavLink, withRouter} from 'react-router-dom'
 import * as axios from "axios";
 import MovieList from './MovieList'
 import {Typography, Container} from '@material-ui/core'
-const apiKey = 'c8971b346877ee4bba0d277ad44911fe'
+// const apiKey = 'c8971b346877ee4bba0d277ad44911fe'
+import movieRequest from './service/api'
 
 class Trending extends Component {
 
@@ -11,11 +12,9 @@ class Trending extends Component {
         movies: [],
       }
     
-      componentDidMount() {
-        axios.get(`https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}`)
-        .then(res => res.data.results).then((data) => {
-          this.setState({movies: [...data]}) 
-        })
+  componentDidMount() {
+    movieRequest(`/trending/movie/day`)
+      .then(({results}) => this.setState({movies: results}))
       }
 
     render() {

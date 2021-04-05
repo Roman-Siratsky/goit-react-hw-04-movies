@@ -1,19 +1,19 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import {Typography} from '@material-ui/core'
-const apiKey = 'c8971b346877ee4bba0d277ad44911fe'
+import movieRequest from './service/api';
+// const apiKey = 'c8971b346877ee4bba0d277ad44911fe'
 class Reviews extends Component {
 
     state = {
         reviews: [],
     }
 
-    componentDidMount(){
-        axios.get(`https://api.themoviedb.org/3/movie/${this.props.filmId}/reviews?api_key=${apiKey}`)
-        .then(res => res.data.results).then(results => results.length > 0
+    componentDidMount() {
+        movieRequest(`/movie/${this.props.filmId}/reviews`)
+            .then(({results}) => results.length > 0
             ? this.setState({reviews: [...results]})
-            : null
-        )
+            : null)
     }
 
     render() {

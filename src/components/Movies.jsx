@@ -1,10 +1,10 @@
-import axios from "axios";
 import React, { Component } from "react";
 import { withRouter} from 'react-router-dom'
 import MovieList from './MovieList';
 import { Input } from '@material-ui/core';
 import { Button } from '@material-ui/core';
-import {apiKey} from './apiKey'
+import movieRequest from "./service/api";
+// import {apiKey} from './apiKey'
 
 
 class Movies extends Component {
@@ -24,14 +24,11 @@ class Movies extends Component {
     OnMoviesSearch = (e) => {
         const {query, page} = this.state
         e.preventDefault()
-        axios.get(`https://api.themoviedb.org/3/search/movie/?api_key=${apiKey}&query=${query}&page=${page}`)
-        .then(res => res.data.results).then((results) => {
-            this.setState({results: [...results]})
-        })
+        movieRequest(`/search/movie`, `&query=${query}&page=${page}`)
+            .then(({results}) => this.setState({ results: [...results] }))
     }
 
     render() {
-        window.state = this.state
         return(
             <div className='search-wrapper'>
             <form className='movie-form'>

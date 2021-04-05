@@ -3,9 +3,10 @@ import React, { Component } from 'react'
 import { NavLink, Route } from 'react-router-dom';
 import Cast from './Cast'
 import Reviews from "./Reviews";
-import {apiKey} from './apiKey'
+// import {apiKey} from './apiKey'
 import routes from '../routes'
 import { Button, Container, Grid, Card, CardMedia, Typography, CardContent, ButtonGroup } from '@material-ui/core';
+import movieRequest from './service/api';
 
 
 class MovieDetail extends Component {
@@ -20,20 +21,15 @@ class MovieDetail extends Component {
     }
 
     componentDidMount() {
-        axios.get(`https://api.themoviedb.org/3/movie/${this.props.match.params.movieId}?api_key=${apiKey}&append_to_response=images`)
-        .then(res => {
-            return res.data
-        }).then((data) => {
-            this.setState({...data, genres: [...data.genres]})
-
-        })
+        movieRequest(`/movie/${this.props.match.params.movieId}&append_to_response=images`)
+            .then((data) => this.setState({ ...data, genres: data.genres }))
     }
 
     handleGoback = () => {
         const {location, history} = this.props;
         (location.state && location.state.from)
         ? history.push(location.state.from)
-        : history.push(routes.home)
+        : history.push(routes.gh + routes.home)
     }
 
     render() {
@@ -76,9 +72,13 @@ class MovieDetail extends Component {
                     </li>
                     </ul>
                     <div className='button-group'>
-                        <ButtonGroup align='center' variant="contained" color="primaryColor">
-                            <NavLink className='link' to={`${routes.gh + routes.movies}/${this.props.match.params.movieId}/cast`} ><Button color="primary">Cast</Button></NavLink>
-                            <NavLink className='link' to={`${routes.gh + routes.movies}/${this.props.match.params.movieId}/reviews`}><Button color="primary">Reviews</Button></NavLink>
+                        <ButtonGroup align='center' variant="contained" color="primary">
+                        <NavLink to={`${routes.gh + routes.movies}/${this.props.match.params.movieId}/cast`}>
+                            <Button color="primary">Cast</Button>
+                        </NavLink>
+                        <NavLink to={`${routes.gh + routes.movies}/${this.props.match.params.movieId}/reviews`}>
+                            <Button color="primary">Reviews</Button>
+                        </NavLink>
                         </ButtonGroup>
                     </div>
                     <div>
