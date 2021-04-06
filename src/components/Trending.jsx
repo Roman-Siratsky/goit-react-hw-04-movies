@@ -4,7 +4,7 @@ import * as axios from "axios";
 import MovieList from './MovieList'
 import {Typography, Container} from '@material-ui/core'
 // const apiKey = 'c8971b346877ee4bba0d277ad44911fe'
-import movieRequest from './service/api'
+import movieRequest from '../service/api'
 
 class Trending extends Component {
 

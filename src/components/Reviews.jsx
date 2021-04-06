@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import {Typography} from '@material-ui/core'
-import movieRequest from './service/api';
+import movieRequest from '../service/api';
 // const apiKey = 'c8971b346877ee4bba0d277ad44911fe'
 class Reviews extends Component {
 

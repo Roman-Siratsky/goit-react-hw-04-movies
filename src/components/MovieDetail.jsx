@@ -6,7 +6,7 @@ import Reviews from "./Reviews";
 // import {apiKey} from './apiKey'
 import routes from '../routes'
 import { Button, Container, Grid, Card, CardMedia, Typography, CardContent, ButtonGroup } from '@material-ui/core';
-import movieRequest from './service/api';
+import movieRequest from '../service/api';
 
 
 class MovieDetail extends Component {

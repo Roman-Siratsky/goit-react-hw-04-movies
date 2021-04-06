@@ -3,7 +3,7 @@ import { withRouter} from 'react-router-dom'
 import MovieList from './MovieList';
 import { Input } from '@material-ui/core';
 import { Button } from '@material-ui/core';
-import movieRequest from "./service/api";
+import movieRequest from "../service/api";
 // import {apiKey} from './apiKey'
 
 
