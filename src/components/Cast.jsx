@@ -1,8 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react'
 import CastMember from './CastMember'
-import movieRequest from '../service/api';
-// import {apiKey} from './apiKey'
+import {fetchCast} from '../service/api'
 
 class Cast extends Component {
 
@@ -11,8 +10,8 @@ class Cast extends Component {
     }
 
     componentDidMount() {
-        movieRequest(`/movie/${this.props.filmId}/credits`)
-            .then(({cast}) => this.setState({cast: cast}))
+        fetchCast(this.props.filmId)
+            .then((cast) => this.setState({cast: cast}))
     }
 
     render() {

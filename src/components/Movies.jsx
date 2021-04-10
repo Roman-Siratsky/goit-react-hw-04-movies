@@ -3,8 +3,7 @@ import { withRouter} from 'react-router-dom'
 import MovieList from './MovieList';
 import { Input } from '@material-ui/core';
 import { Button } from '@material-ui/core';
-import movieRequest from "../service/api";
-// import {apiKey} from './apiKey'
+import {searchMovies} from '../service/api'
 
 
 class Movies extends Component {
@@ -24,8 +23,8 @@ class Movies extends Component {
     OnMoviesSearch = (e) => {
         const {query, page} = this.state
         e.preventDefault()
-        movieRequest(`/search/movie`, `&query=${query}&page=${page}`)
-            .then(({results}) => this.setState({ results: [...results] }))
+        searchMovies(query, page)
+            .then((results) => this.setState({ results: results }))
     }
 
     render() {

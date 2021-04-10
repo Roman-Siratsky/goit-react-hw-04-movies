@@ -3,10 +3,9 @@ import React, { Component } from 'react'
 import { NavLink, Route } from 'react-router-dom';
 import Cast from './Cast'
 import Reviews from "./Reviews";
-// import {apiKey} from './apiKey'
 import routes from '../routes'
 import { Button, Container, Grid, Card, CardMedia, Typography, CardContent, ButtonGroup } from '@material-ui/core';
-import movieRequest from '../service/api';
+import {fetchDetails} from '../service/api'
 
 
 class MovieDetail extends Component {
@@ -21,7 +20,7 @@ class MovieDetail extends Component {
     }
 
     componentDidMount() {
-        movieRequest(`/movie/${this.props.match.params.movieId}&append_to_response=images`)
+        fetchDetails(this.props.match.params.movieId)
             .then((data) => this.setState({ ...data, genres: data.genres }))
     }
 

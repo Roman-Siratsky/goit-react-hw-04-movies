@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import {Typography} from '@material-ui/core'
 import movieRequest from '../service/api';
-// const apiKey = 'c8971b346877ee4bba0d277ad44911fe'
+import {fetchReviews} from '../service/api'
 class Reviews extends Component {
 
     state = {
@@ -10,10 +10,8 @@ class Reviews extends Component {
     }
 
     componentDidMount() {
-        movieRequest(`/movie/${this.props.filmId}/reviews`)
-            .then(({results}) => results.length > 0
-            ? this.setState({reviews: [...results]})
-            : null)
+        fetchReviews(this.props.filmId)
+            .then((reviews) => this.setState({reviews: reviews}))
     }
 
     render() {
